@@ -4,19 +4,17 @@ import com.example.devsuperior.client.model.Client;
 
 import java.time.LocalDate;
 
-public class ClientDTO {
-    private Long id;
+public class ClientRequestDTO {
     private String name;
     private String cpf;
     private Double income;
     private LocalDate birthDate;
     private Integer children;
 
-    public ClientDTO() {
+    public ClientRequestDTO() {
     }
 
-    public ClientDTO(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
-        this.id = id;
+    public ClientRequestDTO(String name, String cpf, Double income, LocalDate birthDate, Integer children) {
         this.name = name;
         this.cpf = cpf;
         this.income = income;
@@ -24,8 +22,7 @@ public class ClientDTO {
         this.children = children;
     }
 
-    public ClientDTO(Client client) {
-        id = client.getId();
+    public ClientRequestDTO(Client client) {
         name = client.getName();
         cpf = client.getCpf();
         income = client.getIncome();
@@ -33,8 +30,24 @@ public class ClientDTO {
         children = client.getChildren();
     }
 
-    public Long getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setIncome(Double income) {
+        this.income = income;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setChildren(Integer children) {
+        this.children = children;
     }
 
     public String getName() {
