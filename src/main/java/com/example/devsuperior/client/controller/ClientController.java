@@ -5,6 +5,7 @@ import com.example.devsuperior.client.dto.ClientRequestDTO;
 import com.example.devsuperior.client.service.ClientService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +19,9 @@ public class ClientController {
     }
 
     @PostMapping
-    public ClientResponseDTO insert(@RequestBody ClientRequestDTO dto) {
+    public ResponseEntity<ClientResponseDTO> insert(@RequestBody ClientRequestDTO dto) {
         ClientResponseDTO responseDTO = clientService.insert(dto);
-        return responseDTO;
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
 
     @GetMapping("/{id}")
