@@ -1,6 +1,6 @@
 # Desafio: CRUD de Clientes 🚀
 
-Este projeto é uma API REST desenvolvida em Java com Spring Boot, construída como parte da **Formação Java Srping Professional** pela **DevSuperior**.
+Este projeto é uma API REST desenvolvida em Java com Spring Boot, construída como parte da **Formação Java Spring Professional** pela **DevSuperior**.
 
 O objetivo principal é implementar um sistema completo de gerenciamento de clientes com tratamento de exceções customizado e validações de dados.
 
