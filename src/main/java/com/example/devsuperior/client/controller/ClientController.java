@@ -3,6 +3,7 @@ package com.example.devsuperior.client.controller;
 import com.example.devsuperior.client.dto.ClientResponseDTO;
 import com.example.devsuperior.client.dto.ClientRequestDTO;
 import com.example.devsuperior.client.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientResponseDTO> insert(@RequestBody ClientRequestDTO dto) {
+    public ResponseEntity<ClientResponseDTO> insert(@Valid @RequestBody ClientRequestDTO dto) {
         ClientResponseDTO responseDTO = clientService.insert(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
@@ -37,7 +38,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientResponseDTO> update(@PathVariable Long id, @RequestBody ClientRequestDTO dto) {
+    public ResponseEntity<ClientResponseDTO> update(@PathVariable Long id, @Valid @RequestBody ClientRequestDTO dto) {
         ClientResponseDTO response = clientService.update(id, dto);
         return ResponseEntity.ok(response);
     }

@@ -1,14 +1,28 @@
 package com.example.devsuperior.client.dto;
 
 import com.example.devsuperior.client.model.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class ClientRequestDTO {
+    @NotBlank(message = "O nome é obrigatório e não pode conter apenas espaços.")
+    @Size(min = 3, max = 80, message = "O nome deve ter entre {min} e {max} caracteres.")
     private String name;
+
+    @NotBlank(message = "O cpf é obrigatório.")
     private String cpf;
+
+    @NotNull(message = "A renda é obrigatória.")
     private Double income;
+
+    @NotNull(message = "A data de nascimento é obrigatória.")
+    @PastOrPresent(message = "A data de nascimento não pode ser data futura.")
     private LocalDate birthDate;
+
     private Integer children;
 
     public ClientRequestDTO() {
